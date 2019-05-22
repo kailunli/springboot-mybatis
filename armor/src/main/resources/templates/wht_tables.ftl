@@ -9,11 +9,11 @@
 </head>
 <body>
 <#list tables as table>
-<div id="table_${table.TABLE_NAME}" style="padding:0 20px;">
+<div id="table_${table.tableName}" style="padding:0 20px;">
     <div style="border: 1px solid #139ff7;margin:5px 0;">
         <table class="layui-table" style="margin:0;">
             <thead>
-            <tr style="background: #139ff7;"><th colspan="6"><h3 style="font-weight:bold;color: #fff;">${table_index + 1}.&nbsp;数据表&nbsp;“<span>${table['TABLE_NAME']}</span>”&nbsp;&nbsp;<span style="color:red;background:#fff;padding:5px;">${table['TABLE_COMMENT']}</span></h3></th></tr>
+            <tr style="background: #139ff7;"><th colspan="6"><h3 style="font-weight:bold;color: #fff;">${table_index + 1}.&nbsp;数据表&nbsp;“<span>${table.tableName}</span>”&nbsp;&nbsp;<span style="color:red;background:#fff;padding:5px;">${table.tableComment}</span></h3></th></tr>
             <tr>
                 <th style="width: 30px;">序号</th>
                 <th style="width: 300px;">字段</th>
@@ -24,14 +24,14 @@
             </tr>
             </thead>
             <tbody>
-            <#list table.COLUMNS as item>
+            <#list table.columns as item>
             <tr>
-                <td>{$index + 1}</td>
-                <td><span style="font-weight: bold;">${table['TABLE_NAME']}::</span><span style="color:#ee32da;">${item.COLUMN_NAME}</span></td>
-                <td title="${item.DATA_TYPE}">${item.COLUMN_TYPE}<span style="color: red;">&nbsp;&nbsp;${item.EXTRA}</span></td>
-                <td>${item.IS_NULLABLE}</td>
-                <td>${item.COLUMN_DEFAULT}</td>
-                <td>${item.COLUMN_COMMENT}</td>
+                <td>${item_index + 1}</td>
+                <td><span style="font-weight: bold;">${table.tableName}::</span><span style="color:#ee32da;">${item.columnName}</span></td>
+                <td title="${item.dataType}">${item.columnType}<span style="color: red;">&nbsp;&nbsp;${item.extra}</span></td>
+                <td>${item.isNullable}</td>
+                <td>${item.columnDefault}</td>
+                <td>${item.columnComment}</td>
             </tr>
             </#list>
             <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
